@@ -256,11 +256,8 @@ public class PlayerMovement : MonoBehaviour
         float _xMov = Input.GetAxis("Horizontal");
         float _zMov = Input.GetAxis("Vertical");
 
-        //Quaternion screenMovementSpace = Quaternion.Euler(0, Cam.eulerAngles.y, 0);
         Vector3 screenMovementForward = CamY.transform.forward;
-        // Vector3 screenMovementForward = screenMovementSpace * CamY.transform.forward;
         Vector3 screenMovementRight = CamY.transform.right;
-        // Vector3 screenMovementRight = screenMovementSpace * CamY.transform.right;
 
         Vector3 h = screenMovementRight * _xMov;
         Vector3 v = screenMovementForward * _zMov;
