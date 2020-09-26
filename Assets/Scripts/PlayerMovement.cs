@@ -50,18 +50,16 @@ public class PlayerMovement : MonoBehaviour
         Colli = GetComponent<DetectCollision>();
         GroundDir = transform.up;
         SetGrounded();
-
-        //TimeManage = GameObject.FindGameObjectWithTag("GameController").GetComponent<TimeManager>();
-
+        
         Cam = GameObject.FindGameObjectWithTag("MainCamera").transform;
         CamY = Cam.transform.parent.parent.transform;
         CamFol = Cam.GetComponentInParent<CameraFollow>();
 
-        //detatch rigidbody
+        //detatch rigidbody so it can move freely 
         Rigid.transform.parent = null;
     }
 
-    private void Update()   //inputs and animation
+    private void Update()   //inputs
     {
         transform.position = Rigid.position;
 
@@ -85,10 +83,6 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()  //world movement
     {
-        //check to make sure game is not paused
-        // if (TimeManage.GameIsPaused)
-        //    return;
-
         delta = Time.deltaTime;
 
         if (States == WorldState.Grounded)
